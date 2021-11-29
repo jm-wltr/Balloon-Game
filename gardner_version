@@ -1,0 +1,27 @@
+int analogPin = A0;
+int val = 0;  // variable to store the analog value read
+int minsense = 300; //minimum analog value to trigger sensore in condition below
+int LEDnum = 0 //first starting LED set to 0
+
+
+void setup() {
+  
+  Serial.begin(9600);
+  DDRD = B00111111;  // sets Arduino pins 0-5 as outputs, 6 and 7 as inputs
+  PORTD = B00111111; // sets digital pins 0-5 HIGH, 6 and 7 as LOW
+  
+}
+
+
+void loop() {
+  
+  val = analogRead(analogPin);
+  Serial.println(val); //useful when calibrating sensor for minsense value
+  delay(10);
+  
+  if (val < minsense){
+    digitalWrite(LEDnum, LOW);
+    LEDnum++;
+    
+  } 
+}
