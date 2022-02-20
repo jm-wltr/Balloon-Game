@@ -2,7 +2,7 @@ int analogPin = A0;
 int val = 0;  // variable to store the analog value read
 int minsense = 50; //minimum analog value to trigger sensore in condition below
 int lives = 4;
-int pins[5] = {10, 6, 12, 8, 4};
+int pins[5] = {7, 10, 9, 4, 5};
 
 void setup() {
   Serial.begin(9600);
@@ -10,7 +10,7 @@ void setup() {
     pinMode(pins[i], OUTPUT);
     digitalWrite(pins[i], HIGH);
   }
- pinMode(9, OUTPUT);
+ pinMode(3, OUTPUT);
  delay(10);
 }
 
@@ -21,9 +21,9 @@ void loop() {
     delay(10);
     if (val > minsense){
       digitalWrite(pins[lives], LOW);
-      tone(9, 300);
+      tone(3, 300);
       delay(100);
-      noTone(9);
+      noTone(3);
       delay(100);
       lives = lives-1;
     }
