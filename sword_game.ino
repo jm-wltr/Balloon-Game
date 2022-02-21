@@ -35,7 +35,7 @@ void loop(){
   }
   //game reset and chord jingle
   if (lives == 0){
-    lives = 4;
+    lives = 5;
     for(int i = 0; i < 5; i++){
       pinMode(pins[i], OUTPUT);
       digitalWrite(pins[i], HIGH);
